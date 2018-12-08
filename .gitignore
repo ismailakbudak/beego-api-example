@@ -14,5 +14,5 @@
 # IDE and compiled
 .vscode/
 reporting-api
-routers/commentsRouter_controllers.go
 lastupdate.tmp
+routers/commentsRouter_controllers.go
