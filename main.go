@@ -10,11 +10,6 @@ import (
 )
 
 func main() {
-	if beego.BConfig.RunMode == "dev" {
-		beego.BConfig.WebConfig.DirectoryIndex = true
-		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
-	}
-
 	log.Println("Env $PORT :", os.Getenv("PORT"))
 	if os.Getenv("PORT") != "" {
 		port, err := strconv.Atoi(os.Getenv("PORT"))
@@ -27,8 +22,12 @@ func main() {
 		beego.BConfig.Listen.HTTPSPort = port
 	}
 	if os.Getenv("BEEGO_ENV") != "" {
+		log.Println("Env $BEEGO_ENV :", os.Getenv("BEEGO_ENV"))
 		beego.BConfig.RunMode = os.Getenv("BEEGO_ENV")
 	}
+
+	beego.BConfig.WebConfig.DirectoryIndex = true
+	beego.BConfig.WebConfig.StaticDir["/"] = "swagger"
 
 	beego.Run()
 }
