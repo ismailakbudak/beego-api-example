@@ -9,7 +9,7 @@ $ go test tests/*
 ```
 - Runs this project as a Web application
 ```
-$ bee run
+$ BEEGO_ENV=dev bee run
 ```
 
 ## License
